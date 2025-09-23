@@ -16,7 +16,7 @@ function createPdfViewer() {
   section.className = 'pdf-section';
   section.innerHTML = `
     <div class="pdf-wrap">
-      <iframe src="الكتيب النهائي.pdf" title="booklet" class="pdf-frame"></iframe>
+      <iframe src="Booklet-compressed.pdf" title="booklet" class="pdf-frame"></iframe>
     </div>
     <div class="logo-wrap">
       <img src="lahun-logo.jpeg" alt="logo large" class="logo-large">
