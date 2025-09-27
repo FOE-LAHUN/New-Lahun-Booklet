@@ -14,22 +14,23 @@ body {
 
 /* Header */
 .app-header {
-  display:flex;
-  align-items:center;
-  flex-wrap: wrap;
-  gap:12px;
-  padding:18px 24px;
-  background:linear-gradient(90deg,var(--accent),#2aa0ff);
-  color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 24px;
+  background: linear-gradient(90deg,var(--accent),#2aa0ff);
+  color: white;
+  text-align: center;
 }
 .app-header .logo {
-  height:56px;
-  border-radius:8px;
-  object-fit:cover;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 .app-header h1 {
-  margin:0;
-  font-size:20px;
+  margin: 0;
+  font-size: 22px;
 }
 
 /* Golden Animated Text */
@@ -57,14 +58,14 @@ body {
   100% { background-position: 200% center; }
 }
 
-/* Navigation buttons */
-.header-nav {
-  margin-left: auto;
+/* Desktop nav */
+.desktop-nav {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
 }
-.header-nav .nav-btn {
+.desktop-nav .nav-btn {
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
@@ -74,8 +75,20 @@ body {
   font-weight: bold;
   transition: background 0.2s;
 }
-.header-nav .nav-btn:hover {
+.desktop-nav .nav-btn:hover {
   background: #e6b800;
+}
+
+/* Mobile nav */
+.mobile-nav {
+  display: none;
+}
+.mobile-nav select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 /* PDF Viewer */
@@ -92,4 +105,14 @@ body {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
 }
