@@ -1,23 +1,88 @@
-
 /* Minimal styles approximating a professional design and original colors */
 :root{
   --bg:#ffffff;
   --accent:#0b74de;
   --muted:#666;
 }
-body{font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#111;}
-.app-header{display:flex;align-items:center;gap:12px;padding:18px 24px;background:linear-gradient(90deg,var(--accent),#2aa0ff);color:white;}
-.app-header .logo{height:56px;border-radius:8px;object-fit:cover;}
-.app-header h1{margin:0;font-size:20px;}
-.pdf-section{display:flex;gap:16px;padding:24px;align-items:flex-start;}
-.pdf-wrap{flex:2;min-height:80vh;border:1px solid #e6e6e6;border-radius:10px;overflow:hidden;}
-.pdf-frame{width:100%;height:100%;border:none;display: block}
-.logo-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;}
-.logo-large{max-width:100%;max-height:60vh;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.12);}
-.app-footer{text-align:center;padding:12px;color:var(--muted);font-size:14px;border-top:1px solid #f0f0f0;}
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:0;
+  background:var(--bg);
+  color:#111;
+}
+.app-header {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 24px;
+  background:linear-gradient(90deg,var(--accent),#2aa0ff);
+  color:white;
+}
+.app-header .logo {
+  height:56px;
+  border-radius:8px;
+  object-fit:cover;
+}
+.app-header h1 {
+  margin:0;
+  font-size:20px;
+}
+.pdf-section {
+  display:flex;
+  gap:16px;
+  padding:24px;
+  align-items:flex-start;
+}
+.pdf-wrap {
+  flex:2;
+  height:80vh;       /* طول ثابت للصندوق */
+  border:1px solid #e6e6e6;
+  border-radius:10px;
+  overflow:hidden;
+}
+.pdf-frame {
+  width:100%;
+  height:100%;       /* يملأ المستطيل بالكامل */
+  border:none;
+  display:block;
+}
+.logo-wrap {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+}
+.logo-large {
+  max-width:100%;
+  max-height:60vh;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+.app-footer {
+  text-align:center;
+  padding:12px;
+  color:var(--muted);
+  font-size:14px;
+  border-top:1px solid #f0f0f0;
+}
+
+/* Mobile responsiveness */
 @media(max-width:900px){
-  .pdf-section{flex-direction:column;}
-  .pdf-frame{height:60vh;}
+  .pdf-section {
+    flex-direction:column;
+    padding:12px;
+  }
+  .pdf-wrap {
+    height:70vh; /* أصغر شوي على الموبايل */
+  }
+  .pdf-frame {
+    height:100%;
+  }
+  .logo-large {
+    max-height:200px;
+    margin-top:12px;
+  }
 }
 
 /* --- Original App.css styles --- */
@@ -171,4 +236,25 @@ html, body, #root {
   .logo-img { height: 48px; }
   .section-btn { min-width: 140px; padding: 10px 12px; font-size: 14px; }
   .pdf-wrapper { padding: 0 12px; }
+}
+
+/* --- New: Mobile PDF fallback button --- */
+.pdf-mobile { 
+  display: none; 
+  text-align: center; 
+  margin: 20px 0; 
+}
+.pdf-link { 
+  display: inline-block; 
+  padding: 12px 20px; 
+  background: #0b74de; 
+  color: white; 
+  border-radius: 8px; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 720px) {
+  .pdf-section { display: none; }  /* نخفي iframe على الموبايل */
+  .pdf-mobile { display: block; }  /* نظهر الزر */
 }
