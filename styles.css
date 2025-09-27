@@ -1,15 +1,17 @@
-/* Minimal styles approximating a professional design and original colors */
 :root{
   --bg:#ffffff;
   --accent:#0b74de;
   --muted:#666;
 }
+
 body {
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   margin:0;
   background:var(--bg);
   color:#111;
 }
+
+/* Header */
 .app-header {
   display:flex;
   align-items:center;
@@ -27,38 +29,8 @@ body {
   margin:0;
   font-size:20px;
 }
-.pdf-section {
-  display:flex;
-  gap:16px;
-  padding:24px;
-  align-items:flex-start;
-}
-.pdf-wrap {
-  flex:2;
-  height:80vh;       /* طول ثابت للصندوق */
-  border:1px solid #e6e6e6;
-  border-radius:10px;
-  overflow:hidden;
-}
-.pdf-frame {
-  width:100%;
-  height:100%;       /* يملأ المستطيل بالكامل */
-  border:none;
-  display:block;
-}
-.logo-wrap {
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px;
-}
-.logo-large {
-  max-width:100%;
-  max-height:60vh;
-  border-radius:10px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
-}
+
+/* Footer */
 .app-footer {
   text-align:center;
   padding:12px;
@@ -67,194 +39,45 @@ body {
   border-top:1px solid #f0f0f0;
 }
 
-/* Mobile responsiveness */
-@media(max-width:900px){
-  .pdf-section {
-    flex-direction:column;
-    padding:12px;
-  }
-  .pdf-wrap {
-    height:70vh; /* أصغر شوي على الموبايل */
-  }
-  .pdf-frame {
-    height:100%;
-  }
-  .logo-large {
-    max-height:200px;
-    margin-top:12px;
-  }
-}
-
-/* --- Original App.css styles --- */
-:root {
-  --bg: #000000;
-  --gold1: #ffd54a;
-  --gold2: #e6b800;
-  --gold-dark: #b38300;
-}
-
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", sans-serif;
-  direction: rtl;
-}
-
-.app-root {
-  min-height: 100%;
-  background: var(--bg);
-  color: white;
+/* PDF Viewer styles */
+.pdf-viewer {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+.pdf-viewer canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
 
-.app-header {
-  padding: 18px 28px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
-
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.logo-img {
-  height: 64px;
-  width: auto;
-  object-fit: contain;
-}
-
-.brand-title {
-  font-size: 28px;
-  font-weight: 700;
-  background: linear-gradient(90deg, #fff7d6, #ffd54a 30%, #e6b800 70%);
+/* Golden Animated Text */
+.gold-text {
+  background: linear-gradient(
+    90deg, 
+    #fff7d6, 
+    #ffd54a 25%, 
+    #e6b800 50%, 
+    #ffd54a 75%, 
+    #fff7d6
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-}
-
-.main-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center;
-}
-
-.pdf-wrapper {
-  width: 100%;
-  max-width: 1200px;
-}
-
-.pdf-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-  justify-content: center;
-}
-
-.nav-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.slider-area {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 70%;
-  max-width: 720px;
-}
-
-.page-slider {
-  width: 100%;
-}
-
-.page-indicator {
-  min-width: 110px;
-  text-align: center;
-  color: #ddd;
-}
-
-.pdf-viewer {
-  background: rgba(0,0,0,0.4);
-  padding: 16px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-}
-
-.pdf-viewer canvas {
-  border-radius: 6px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.8);
-}
-
-.section-buttons {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.section-btn {
-  padding: 12px 18px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  min-width: 160px;
-  text-align: center;
-  transition: all 180ms ease;
-  background: linear-gradient(180deg, var(--gold1), var(--gold2));
-  color: #2b1900;
-  box-shadow: 0 6px 18px rgba(230,180,50,0.12), inset 0 -3px 0 rgba(0,0,0,0.06);
-}
-
-.section-btn.active {
-  background: #000;
-  color: var(--gold1);
-  border: 2px solid var(--gold1);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 10px rgba(230,180,50,0.08);
-}
-
-.section-btn:hover { transform: translateY(-3px); }
-
-@media (max-width: 720px) {
-  .brand-title { font-size: 20px; }
-  .logo-img { height: 48px; }
-  .section-btn { min-width: 140px; padding: 10px 12px; font-size: 14px; }
-  .pdf-wrapper { padding: 0 12px; }
-}
-
-/* --- New: Mobile PDF fallback button --- */
-.pdf-mobile { 
-  display: none; 
-  text-align: center; 
-  margin: 20px 0; 
-}
-.pdf-link { 
-  display: inline-block; 
-  padding: 12px 20px; 
-  background: #0b74de; 
-  color: white; 
-  border-radius: 8px; 
-  text-decoration: none;
   font-weight: bold;
+  font-size: 24px;
+  animation: shine 4s linear infinite;
 }
 
-@media (max-width: 720px) {
-  .pdf-section { display: none; }  /* نخفي iframe على الموبايل */
-  .pdf-mobile { display: block; }  /* نظهر الزر */
+/* Animation */
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }

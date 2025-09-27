@@ -9,13 +9,11 @@
 <body>
   <div id="root"></div>
 
-  <!-- زر بديل يظهر فقط في الموبايل -->
-  <div class="pdf-mobile">
-    <a href="Booklet-compressed.pdf" target="_blank" class="pdf-link">
-      📖 اضغط هنا لفتح الكتيب كامل
-    </a>
-  </div>
+  <!-- مكان عرض الـ PDF -->
+  <div id="pdf-viewer" class="pdf-viewer"></div>
 
+  <!-- مكتبة PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
