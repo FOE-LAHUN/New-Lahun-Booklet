@@ -28,13 +28,13 @@ function createHeader() {
         <option value="5-5">الرؤية والرسالة</option>
         <option value="6-6">الأهداف الاستراتيجية</option>
         <option value="7-7">الرؤية المستقبلية</option>
-        <option value="9-19">المنشآت والمصادر الحيوية</option>
-        <option value="20-20">بيانات ومساحات القطاع</option>
-        <option value="21-21">تطور المساحات المنزرعة</option>
-        <option value="22-22">المنتجات المنزرعة</option>
-        <option value="23-23">القيمة الإيجارية للصوب</option>
-        <option value="24-30">الخدمات وآلية العمل</option>
-        <option value="31-33">شركاء النجاح</option>
+        <option value="8-21">المنشآت والمصادر الحيوية</option>
+        <option value="22-22">بيانات ومساحات القطاع</option>
+        <option value="23-23">تطور المساحات المنزرعة</option>
+        <option value="24-27">المنتجات المنزرعة</option>
+        <option value="28-28">القيمة الإيجارية للصوب</option>
+        <option value="29-36">الخدمات وآلية العمل</option>
+        <option value="37-40">شركاء النجاح</option>
       </select>
     </div>
   `;
