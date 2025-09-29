@@ -1,14 +1,17 @@
 :root{
-  --bg:#ffffff;
+  --bg:#f9f9f9;
   --accent:#0b74de;
   --muted:#666;
+  --gold1:#ffd54a;
+  --gold2:#e6b800;
 }
 
 /* Base */
 body {
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family: 'Cairo', system-ui, sans-serif;
   margin:0;
-  background:var(--bg);
+  background: var(--bg) url('https://www.transparenttextures.com/patterns/cream-dust.png');
+  background-attachment: fixed;
   color:#111;
 }
 
@@ -25,7 +28,7 @@ body {
 }
 .app-header .logo {
   height: 56px;
-  border-radius: 8px;
+  border-radius: 50%;
   object-fit: cover;
 }
 .app-header h1 {
@@ -35,60 +38,56 @@ body {
 
 /* Golden Animated Text */
 .gold-text {
-  background: linear-gradient(
-    90deg, 
-    #fff7d6, 
-    #ffd54a 25%, 
-    #e6b800 50%, 
-    #ffd54a 75%, 
-    #fff7d6
-  );
+  background: linear-gradient(90deg,#fff7d6,#ffd54a 25%,#e6b800 50%,#ffd54a 75%,#fff7d6);
   background-size: 200% auto;
-  -webkit-background-clip: text;
+  background-clip: text;              /* ✅ التوافق القياسي */
+  -webkit-background-clip: text;     /* ✅ دعم كروم وسفاري */
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  color: transparent;                 /* ✅ دعم فايرفوكس وبقية المتصفحات */
+  animation: shine 4s linear infinite;
   font-weight: bold;
   font-size: 24px;
-  animation: shine 4s linear infinite;
 }
 @keyframes shine {
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
 }
 
-/* Desktop nav */
+/* Desktop nav buttons */
 .desktop-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 }
 .desktop-nav .nav-btn {
-  padding: 6px 12px;
+  padding: 10px 18px;
   border: none;
-  border-radius: 6px;
-  background: #ffd54a;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--gold1), var(--gold2));
   color: #000;
-  cursor: pointer;
   font-weight: bold;
-  transition: background 0.2s;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .desktop-nav .nav-btn:hover {
-  background: #e6b800;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* Mobile nav */
+/* Mobile dropdown */
 .mobile-nav {
   display: none;
 }
 .mobile-nav select {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   font-weight: bold;
   font-size: 14px;
+  width: 100%;
+  max-width: 280px;
 }
 
 /* PDF Viewer */
@@ -103,16 +102,45 @@ body {
 #pdf-pages canvas {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Loader */
+#loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #eee;
+  border-top: 6px solid var(--accent);
+  border-radius: 50%;
+  margin: 40px auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  margin-top: 30px;
+}
+.app-footer strong {
+  color: var(--gold2);
 }
 
 /* Responsive */
 @media(max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-  .mobile-nav {
-    display: block;
-  }
+  .desktop-nav { display: none; }
+  .mobile-nav { display: block; }
 }

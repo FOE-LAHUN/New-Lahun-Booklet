@@ -21,22 +21,22 @@ function createHeader() {
     </nav>
 
     <!-- قائمة منسدلة للموبايل -->
-    <div class="mobile-nav">
+     <div class="mobile-nav">
       <select id="mobile-select">
-        <option value="">اختر القسم</option>
+       <option value="">اختر القسم</option>
         <option value="1-4">المقدمة</option>
-        <option value="5-5">الرؤية والرسالة</option>
-        <option value="6-6">الأهداف الاستراتيجية</option>
-        <option value="7-7">الرؤية المستقبلية</option>
-        <option value="8-21">المنشآت والمصادر الحيوية</option>
-        <option value="22-22">بيانات ومساحات القطاع</option>
-        <option value="23-23">تطور المساحات المنزرعة</option>
-        <option value="24-27">المنتجات المنزرعة</option>
-        <option value="28-28">القيمة الإيجارية للصوب</option>
-        <option value="29-36">الخدمات وآلية العمل</option>
-        <option value="37-40">شركاء النجاح</option>
-      </select>
-    </div>
+         <option value="5-5">الرؤية والرسالة</option>
+          <option value="6-6">الأهداف الاستراتيجية</option>
+           <option value="7-7">الرؤية المستقبلية</option> 
+           <option value="8-21">المنشآت والمصادر الحيوية</option> 
+           <option value="22-22">بيانات ومساحات القطاع</option> 
+           <option value="23-23">تطور المساحات المنزرعة</option>
+            <option value="24-27">المنتجات المنزرعة</option> 
+            <option value="28-28">القيمة الإيجارية للصوب</option>
+             <option value="29-36">الخدمات وآلية العمل</option> 
+             <option value="37-40">شركاء النجاح</option>
+              </select>
+               </div>
   `;
   return h;
 }
@@ -47,7 +47,7 @@ function init() {
   root.appendChild(createHeader());
 
   const container = document.getElementById("pdf-viewer");
-  container.innerHTML = `<div id="pdf-pages"></div>`;
+  container.innerHTML = `<div id="loader"></div><div id="pdf-pages"></div>`;
 
   const url = "Booklet-compressed.pdf";
   let pdfDoc = null;
@@ -59,8 +59,10 @@ function init() {
 
   function renderPageRange(start, end) {
     const viewer = document.getElementById("pdf-pages");
-    viewer.innerHTML = ""; 
+    viewer.innerHTML = "";
+    document.getElementById("loader").style.display = "block";
 
+    let rendered = 0;
     for (let num = start; num <= end && num <= pdfDoc.numPages; num++) {
       pdfDoc.getPage(num).then(function(page) {
         const scale = 1.2;
@@ -73,7 +75,12 @@ function init() {
 
         viewer.appendChild(canvas);
 
-        page.render({ canvasContext: ctx, viewport: viewport });
+        page.render({ canvasContext: ctx, viewport: viewport }).promise.then(() => {
+          rendered++;
+          if (rendered === (end - start + 1)) {
+            document.getElementById("loader").style.display = "none";
+          }
+        });
       });
     }
   }
