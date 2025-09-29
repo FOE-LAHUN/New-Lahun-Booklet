@@ -21,32 +21,40 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  padding: 18px 24px;
-  background: linear-gradient(90deg,var(--accent),#2aa0ff);
+  padding: 24px;
+  background: linear-gradient(135deg, #0b74de 0%, #2aa0ff 30%, #ffd54a 100%);
   color: white;
   text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  border-bottom: 3px solid rgba(255,213,74,0.8);
 }
 .app-header .logo {
-  height: 56px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 213, 74, 0.6); /* هالة ذهبية */
+  border: 2px solid white;
 }
 .app-header h1 {
   margin: 0;
-  font-size: 22px;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* Golden Animated Text */
 .gold-text {
   background: linear-gradient(90deg,#fff7d6,#ffd54a 25%,#e6b800 50%,#ffd54a 75%,#fff7d6);
   background-size: 200% auto;
-  background-clip: text;              /* ✅ التوافق القياسي */
-  -webkit-background-clip: text;     /* ✅ دعم كروم وسفاري */
+  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;                 /* ✅ دعم فايرفوكس وبقية المتصفحات */
+  color: transparent;
   animation: shine 4s linear infinite;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 26px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 @keyframes shine {
   0% { background-position: 0% center; }
