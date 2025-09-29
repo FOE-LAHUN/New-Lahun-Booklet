@@ -45,11 +45,11 @@ body::before {
 }
 .app-header .logo {
   height: 70px;
-  width: 70px;
-  border-radius: 50%;
+  width: 150px;
+  border-radius: 0;
   object-fit: cover;
-  box-shadow: 0 0 15px rgba(255, 213, 74, 0.6); /* هالة ذهبية */
-  border: 2px solid white;
+  box-shadow: 0 4 15px rgba(0, 0, 0, 0.3); /* هالة ذهبية */
+  border: 3px solid #ffffff; 
 }
 .app-header h1 {
   margin: 0;
